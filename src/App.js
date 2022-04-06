@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import Home from "./components/Home";
+import Navbar from "./components/Navbar";
+import About from "./pages/About";
+import Gmail from "./pages/Gmail";
+import Images from "./pages/Images";
+import Store from "./pages/Store";
+import {Routes,Route} from 'react-router-dom';
+import GlobalStyle from './styles/globalStyles';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <GlobalStyle/>
+      <Navbar/>
+      <Routes>
+        <Route path="/" exact element={<Home/>}/>
+        <Route path="/about" element={<About/>}/>
+        <Route path="/store" element={<Store/>}/>
+        <Route path="/gmail" element={<Gmail/>}/>
+        <Route path="/images" element={<Images/>}/>
+      </Routes>
     </div>
   );
 }
